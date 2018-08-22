@@ -1,0 +1,107 @@
+
+
+
+
+
+
+
+<script id="otp-yesNoDialog" type="text/html">
+    <div style="position: relative;">
+        <div class="otp-dialogContent">{{message}}</div>
+        <div class="otp-dialogButtonRow">
+            <button class="yesButton">Yes</button>
+            <button class="noButton">No</button>
+        </div>
+    </div>
+</script>
+
+<script id="otp-inputDialog" type="text/html">
+    <div style="position: relative;">
+
+        <div class="otp-dialogContent">
+            {{message}}
+            <div style="margin-top: 6px;">
+                <textarea class="borderBox textarea" style="z-index: 1000000; width: 100%; height: 3em;" />
+            </div>
+        </div>
+        <div class="otp-dialogButtonRow">
+            <button class="okButton">OK</button>
+            <button class="cancelButton">Cancel</button>
+        </div>
+    </div>
+</script>
+
+<script id="otp-okDialog" type="text/html">
+    <div style="position: relative;">
+        <div class="otp-dialogContent">{{message}}</div>
+        <div class="otp-dialogButtonRow2">
+            <button class="okButton">{{ok}}</button>
+        </div>
+    </div>
+</script>
+
+<script id="otp-showSharetoDialog" type="text/html">
+    <div style="position: relative;">
+        <div class="otp-dialogContent">{{message}}</div>
+        <div class="otp-dialogButtonRow3">
+            <button class="okButton">{{ok}}</button>
+        </div>
+    </div>
+</script>
+
+
+<script id="otp-commentDialog" type="text/html">
+
+    <div style="position: relative;">
+
+
+        <div class="otp-dialogContent">
+			<div style="position: relative; width: 2.5em; float:left;">
+			<div style="height: 3em;" >Mark(name)</div>
+			<div>Comments</div>
+			</div>
+			
+
+		
+		<div style="position: relative; margin-left: 7em; height: 12em; overflow: hidden;">
+				<div style="position: absolute; left:0px; right: 30px; top: 0px">
+				<input class="inputlocname" type="text" value =""/>
+				</div>
+			
+				<div style="position: absolute; top: 1.8em; left:0px; right: 30px; height: 13px;">
+				<textarea class="inputComname" type="text" style="position:relative; top:18px " />
+				</div>
+
+		</div>
+
+		
+		<div class="otp-dialogButtonRow" >
+            <button class="okButton">OK</button>
+            <button class="cancelButton">Cancel</button>
+			<button class="deleteButton">Delete all</button>
+        </div>
+		
+		
+
+		
+    </div>
+</script>
+
+
+
+
+
+
+
+<script id="otp-dateDialog" type="text/html">
+    <div style="position: relative;">
+        <div class="otp-dialogContent">
+            {{message}}
+            <div class="datepicker" style="margin-top: 6px;"></div>
+        </div>
+        <div class="otp-dialogButtonRow">
+            <button class="okButton">OK</button>
+            <button class="cancelButton">Cancel</button>
+        </div>
+    </div>
+</script>

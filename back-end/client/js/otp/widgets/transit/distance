@@ -1,0 +1,145 @@
+define("dextra/dijit/MeasureTools", [
+    "dojo/dom",
+    "dojo/query",
+    "dojo/_base/declare",
+    "dojo/_base/lang",
+    "dijit/_WidgetBase",
+    "dojo/on",
+    "esri/graphic",
+    "esri/layers/GraphicsLayer",
+    "esri/toolbars/draw",
+    "esri/Color",
+    "esri/symbols/Font",
+    "esri/geometry/Polyline",
+    "esri/symbols/SimpleMarkerSymbol",
+    "esri/symbols/SimpleLineSymbol",
+    "esri/symbols/TextSymbol",
+    "esri/geometry/geometryEngine",
+], function (dom, query, declare, lang, _WidgetBase, on,
+             Graphic, GraphicsLayer,
+             Draw, Color, Font, Polyline, MarkerSymbol, LineSymbol, TextSymbol, geometryEngine) {
+    var measureTools = declare(_WidgetBase, {
+        declaredClass: "dextra.dijit.MeasureTools",
+        defaults: {
+            map: null,
+            lineSymbol: new LineSymbol(
+                LineSymbol.STYLE_SOLID,
+                new Color("#FFA500"),
+                2
+            ),
+            markerSymbol: new MarkerSymbol(MarkerSymbol.STYLE_CIRCLE, 10,
+                new LineSymbol(LineSymbol.STYLE_SOLID,
+                    new Color("#DC143C"), 2),
+                new Color("#FFA500")),
+        },
+        srcRefNode: null,
+        toolbar: null,
+        _stopPoints: null,
+        _stopDistances: null,
+        _measureLayer: null,
+        _mapClickFlag: null,// used to cancel click
+        constructor: function (options, srcRefNode) {
+            declare.safeMixin(this.defaults, options);
+            this.srcRefNode = srcRefNode;
+            this._measureLayer = new GraphicsLayer();
+            this.defaults.map.addLayer(this._measureLayer);
+            this._initalToolbar();
+            this._initialMeasureLayer();
+        },
+ 
+        _initialMeasureLayer: function () {
+            this._measureLayer.on("mouse-over", lang.hitch(this, function (evt) {
+                var graphic = evt.graphic;
+                if (graphic.symbol.isClearBtn) {
+                    this.defaults.map.setMapCursor("pointer");
+                    on.once(graphic.getShape(), "click", lang.hitch(this, function () {
+                        this._measureLayer.clear();
+                        this.defaults.map.setMapCursor("default");
+                    }));
+                }
+            }));
+            this._measureLayer.on("mouse-out", lang.hitch(this, function (evt) {
+                this.defaults.map.setMapCursor("default");
+            }));
+ 
+        },
+
+        _initalToolbar: function () {
+            var map = this.defaults.map
+            this.toolbar = new Draw(map, {showTooltips: false});
+            this.toolbar.on("draw-complete", lang.hitch(this, this._drawComplete));
+            query("#" + this.srcRefNode + " > .measure-distance").on("click", lang.hitch(this, this._startMeasureDistance));
+            query("#" + this.srcRefNode + " > .measure-area").on("click", lang.hitch(this, this._startMeasureArea));
+        },
+ 
+
+        _drawComplete: function (evt) {
+            if (evt.geometry.type == "polygon") {
+                this._endMeasureArea(evt.geometry)
+            } else {
+                var endPoint = this._stopPoints[this._stopPoints.length - 1];
+                this._endMeasureDistance(evt.geometry, endPoint);
+            }
+            this.toolbar.deactivate();
+        },
+ 
+        _startMeasureDistance: function () {
+            this._clearMapMouseClickEvent();
+            this._stopPoints = [];
+            this._stopDistances = [];
+            this._measureLayer.clear();
+            this.toolbar.deactivate();
+            this.toolbar.activate(Draw.POLYLINE);
+ 
+            var stopPoints = this._stopPoints;
+            var stopDistances = this._stopDistances;
+            var self = this;
+ 
+            this._mapClickFlag = this.defaults.map.on("click", function (evt) {
+                var distance = 0;
+                var stopPoint = evt.mapPoint;
+                if (stopPoints.length > 0) {
+                    var startPoint = stopPoints[stopPoints.length - 1];
+                    distance = self._calDistance(startPoint, stopPoint);
+                    if (self._stopDistances.length > 0) {
+                        distance += self._stopDistances[self._stopDistances.length - 1];
+                    }
+                    stopDistances.push(distance);
+                }
+                stopPoints.push(stopPoint);
+                var stopGraphic = new Graphic(stopPoint, self.defaults.markerSymbol);
+                var textGraphic = self._getStopPointGraphic(stopPoint, distance);
+                self._measureLayer.add(stopGraphic);
+                self._measureLayer.add(textGraphic);
+            });
+        },
+ 
+        _endMeasureDistance: function (line, endPoint) {
+            var lineGraphic = new Graphic(line, this.toolbar.lineSymbol);
+            var clearGraphic = this._createClearBtn(endPoint);
+ 
+            this._measureLayer.add(clearGraphic);
+            this._measureLayer.add(lineGraphic);
+            lineGraphic.getDojoShape().moveToBack();
+            this._clearMapMouseClickEvent();
+        },
+        _getStopPointGraphic: function (stopPoint, distance) {
+            var textSymbol = this._createTextSymbol("start");
+            if (distance > 0 && distance >= 1000) {
+                textSymbol = textSymbol.setText((distance / 1000).toFixed(2) + "km");
+            } else if (distance > 0 && distance < 1000) {
+                textSymbol = textSymbol.setText(distance.toFixed() + "m");
+            }
+            return new Graphic(stopPoint, textSymbol);
+        },
+        _calDistance: function (point1, point2) {
+            var line = new Polyline(this.defaults.map.spatialReference);
+            line.addPath([point1, point2]);
+            if (this.defaults.map.spatialReference.isWebMercator() || this.defaults.map.spatialReference.wkid == "4326") 
+                return geometryEngine.geodesicLength(line, "meters");
+            } else {
+                return geometryEngine.planarLength(line, "meters")
+            }
+        },
+ 
+        
