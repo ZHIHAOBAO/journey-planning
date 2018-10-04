@@ -35,15 +35,19 @@ otp.modules.planner.TripPlan = otp.Class({
             this.itineraries.push(new otp.modules.planner.Itinerary(itinData, this));
         }
         this.calculateTimeBounds();
-        if(queryParams.sortBy === "SHORTEST_TIME" || queryParams.sortBy === "SHORTEST_DISTANCE") {
-        	this.itineraries.sort(function(a, b) {
-        		if(queryParams.sortBy === "SHORTEST_TIME") {
-            		return a.itinData.duration - b.itinData.duration;
-        		}else {
-            		return a.totalWalk - b.totalWalk;
-        		}
+        if(queryParams.sortBy === "SHORTEST_TIME" || queryParams.sortBy === "SHORTEST_DISTANCE"|| queryParams.sortBy === "LEAST_WALKING" || queryParams.sortBy === "LONGEST_WALKING") {
+            this.itineraries.sort(function(a, b) {
+                if(queryParams.sortBy === "SHORTEST_TIME") {
+                    return a.itinData.duration - b.itinData.duration;
+                }
+                else if(queryParams.sortBy === "LONGEST_WALKING"){
+                    return b.totalWalk - a.totalWalk;
+                }
+                else {
+                    return a.totalWalk - b.totalWalk;
+                }
 
-        	});
+            });
         }
         if(queryParams.sortBy === "MAX_2_TRANSITS") {
         	this.itineraries = this.itineraries.filter((o) => {

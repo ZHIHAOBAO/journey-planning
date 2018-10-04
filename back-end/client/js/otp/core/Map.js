@@ -322,6 +322,245 @@ otp.core.Map = otp.Class({
 
     		);
 		
+		/*
+    	 *  Code by Jeremy
+    	 * 04/09/2018 6:03pm
+    	 */
+    	
+    	 //MedicalOne - QV
+               var point13 = [-37.81111, 144.96497];
+               var greenIcon = L.icon(
+                    {
+                        iconUrl: resourcePath + 'images/icons8-medical.png',
+                        shadowUrl: null,
+                        iconSize: new L.Point(13, 23),
+                        iconAnchor: new L.Point(7, 23),
+                        popupAnchor: new L.Point(0, -23)
+                }
+                );
+                var marker13 = L.marker(point13, {icon: greenIcon});
+                marker13.addTo(this.lmap);
+                marker13.bindPopup(
+                        '<b>MedicalOne - QV</b><div><br><img style="width:100%" src="https://upload.wikimedia.org/wikipedia/commons/1/14/MedicalOne-image-Jeremy.jpg" alt="image" /></div>'
+                        + "<br>Address: Level 3,23 QV Terrace,292 Swanston Street, Melbourne VIC 3000"
+                        + "<br>Website: <a href='https://www.medicalone.com.au/centre/medical-one-qv' target='_blank'>https://www.medicalone.com.au/centre/medical-one-qv</a>"
+                        + "<br>Phone: (03) 8663 7000"
+
+                    );
+                
+                
+                
+                
+                //Swanston  Street Medical Centre
+                var point14 = [-37.81198, 144.96515];
+                var greenIcon = L.icon(
+                    {
+                        iconUrl: resourcePath + 'images/icons8-medical.png',
+                        shadowUrl: null,
+                        iconSize: new L.Point(13, 23),
+                        iconAnchor: new L.Point(7, 23),
+                        popupAnchor: new L.Point(0, -23)
+                }
+                );
+                var marker14 = L.marker(point14, {icon: greenIcon});
+                marker14.addTo(this.lmap);
+                marker14.bindPopup(
+                        '<b>Swanston Street Medical Centre</b><div><br><img style="width:100%" src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Swanston-Street-Medical-Centre-Left-RGB.png" alt="image" /></div>'
+                        + "<br>Address: Level 3,255 Bourke Street, Melbourne VIC 3000"
+                        + "<br>Website: <a href='https://swanstonstreetmedicalcentre.com.au' target='_blank'>https://swanstonstreetmedicalcentre.com.au</a>"
+                        + "<br>Phone: (03) 9205 7500"
+
+                    );
+                
+                //CBD Doctors Melbourne
+                var point15 = [-37.81765, 144.96164];
+                var greenIcon = L.icon(
+                    {
+                        iconUrl: resourcePath + 'images/icons8-medical.png',
+                        shadowUrl: null,
+                        iconSize: new L.Point(13, 23),
+                        iconAnchor: new L.Point(7, 23),
+                        popupAnchor: new L.Point(0, -23)
+                }
+                );
+                var marker15 = L.marker(point15, {icon: greenIcon});
+                marker15.addTo(this.lmap);
+                marker15.bindPopup(
+                        '<b>CBD Doctors Melbourne</b><div><br><img style="width:100%" src="https://upload.wikimedia.org/wikipedia/commons/1/14/CBD_Doctors_Melbourne.jpg" alt="image" /></div>'
+                        + "<br>Address: 10/53 Queen Street, Melbourne VIC 3000"
+                        + "<br>Website: <a href='https://cbddoctorsmelbourne.com.au' target='_blank'>https://www.cbddoctorsmelbourne.com.au/</a>"
+                        + "<br>Phone: (03) 9077 9912"
+
+                    );
+                
+                //The Town Medical Centre
+                var point16 = [-37.81427, 144.96021];
+                var greenIcon = L.icon(
+                    {
+                        iconUrl: resourcePath + 'images/icons8-medical.png',
+                        shadowUrl: null,
+                        iconSize: new L.Point(13, 23),
+                        iconAnchor: new L.Point(7, 23),
+                        popupAnchor: new L.Point(0, -23)
+                }
+                );
+                var marker16 = L.marker(point16, {icon: greenIcon});
+                marker16.addTo(this.lmap);
+                marker16.bindPopup(
+                        '<b>The Town Medical Centre</b><div><br><img style="width:100%" src="https://upload.wikimedia.org/wikipedia/commons/b/bd/TheTownMedicalCentre.jpg" alt="image" /></div>'
+                        + "<br>Address: 5/179 Queen Street, Melbourne VIC 3000"
+                        + "<br>Website: <a href='https://townmedicalcentre.com.au' target='_blank'>http://www.townmedicalcentre.com.au</a>"
+                        + "<br>Phone: (03) 9670 5777"
+
+                    );
+                
+                
+                
+
+                //Barry Road Medical Centre
+                var point17 = [-37.81556, 144.95341];
+                var greenIcon = L.icon(
+                    {
+                        iconUrl: resourcePath + 'images/icons8-medical.png',
+                        shadowUrl: null,
+                        iconSize: new L.Point(13, 23),
+                        iconAnchor: new L.Point(7, 23),
+                        popupAnchor: new L.Point(0, -23)
+                }
+                );
+                var marker17 = L.marker(point17, {icon: greenIcon});
+                marker17.addTo(this.lmap);
+                marker17.bindPopup(
+                        '<b>Barry Road Medical Centre</b><div><br><img style="width:100%" src="https://upload.wikimedia.org/wikipedia/commons/8/8a/BarryRoadMedicalCentre.jpg" alt="image" /></div>'
+                        + "<br>Address: 347 Barry Rd, Campbellfield VIC 3061"
+                        + "<br>Website: <a href='https://barryroadmedicalcentre.com.au' target='_blank'>barryroadmedicalcentre.com.au</a>"
+                        + "<br>Phone: (03) 9357 0202"
+                    );
+                
+                
+                
+                //La Trobe St Medical
+                var point18 = [-37.80991, 144.96351];
+                var greenIcon = L.icon(
+                    {
+                        iconUrl: resourcePath + 'images/icons8-medical.png',
+                        shadowUrl: null,
+                        iconSize: new L.Point(13, 23),
+                        iconAnchor: new L.Point(7, 23),
+                        popupAnchor: new L.Point(0, -23)
+                }
+                );
+                var marker18 = L.marker(point18, {icon: greenIcon});
+                marker18.addTo(this.lmap);
+                marker18.bindPopup(
+                        '<b>La Trobe St Medical</b><div><br><img style="width:100%" src="https://upload.wikimedia.org/wikipedia/commons/7/72/LaTrobeMedical.jpg" alt="image" /></div>'
+                        + "<br>Address: 211 La Trobe St, Melbourne VIC 3000"
+                        + "<br>Website: <a href='melbournecentralpharmacy.com.au' target='_blank'>melbournecentralpharmacy.com.au</a>"
+                        + "<br>Phone: (03) 9650 0023"
+                    );
+                
+                
+                //Victoria Habour Medical Centre
+                var point19 = [-37.82097, 144.94458];
+                var greenIcon = L.icon(
+                    {
+                        iconUrl: resourcePath + 'images/icons8-medical.png',
+                        shadowUrl: null,
+                        iconSize: new L.Point(13, 23),
+                        iconAnchor: new L.Point(7, 23),
+                        popupAnchor: new L.Point(0, -23)
+                }
+                );
+                var marker19 = L.marker(point19, {icon: greenIcon});
+                marker19.addTo(this.lmap);
+                marker19.bindPopup(
+                        '<b>Victoria Habour Medical Centre</b><div><br><img style="width:100%" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/VicHabourMedical.jpg" alt="image" /></div>'
+                        + "<br>Address: 2/3/850 Collins St, Docklands VIC 3008"
+                        + "<br>Website: <a href='victoriaharbourmedicalcentre.com.au' target='_blank'>victoriaharbourmedicalcentre.com.au</a>"
+                        + "<br>Phone: (03) 9629 1414"
+
+                    );
+                
+                //Melbourne West Police Station
+                var point20 = [-37.81353, 144.95120];
+                var greenIcon = L.icon(
+                    {
+                        iconUrl: resourcePath + 'images/icons8-policestation.png',
+                        shadowUrl: null,
+                        iconSize: new L.Point(13, 23),
+                        iconAnchor: new L.Point(7, 23),
+                        popupAnchor: new L.Point(0, -23)
+                }
+                );
+                var marker20 = L.marker(point20, {icon: greenIcon});
+                marker20.addTo(this.lmap);
+                marker20.bindPopup(
+                        '<b>Melbourne West Police Station</b><div><br><img style="width:100%" src="https://upload.wikimedia.org/wikipedia/commons/f/fe/WestPolice.jpg" alt="image" /></div>'
+                        + "<br>Address: 313 Spencer St, Docklands VIC 3008"
+                        + "<br>Website: <a href='police.vic.gov.au' target='_blank'>police.vic.gov.au</a>"
+                        + "<br>Phone: (03) 8690 4444"
+                    );
+                
+                //Victoria Police Centre
+                var point21 = [-37.82195, 144.95348];
+                var greenIcon = L.icon(
+                    {
+                        iconUrl: resourcePath + 'images/icons8-policestation.png',
+                        shadowUrl: null,
+                        iconSize: new L.Point(13, 23),
+                        iconAnchor: new L.Point(7, 23),
+                        popupAnchor: new L.Point(0, -23)
+                }
+                );
+                var marker21 = L.marker(point21, {icon: greenIcon});
+                marker21.addTo(this.lmap);
+                marker21.bindPopup(
+                        '<b>Victoria Police Centre</b><div><br><img style="width:100%" src="https://upload.wikimedia.org/wikipedia/commons/2/29/VIcPoliceCentre.jpg" alt="image" /></div>'
+                        + "<br>Address: 637 Flinders St, Melbourne VIC 3008"
+                        + "<br>Website: <a href='police.vic.gov.au' target='_blank'>police.vic.gov.au</a>"
+                        + "<br>Phone: (03) 9247 6666"
+                    );
+                
+                //Melbourne East Police Station
+                var point22 = [-37.82195, 144.95348];
+                var greenIcon = L.icon(
+                    {
+                        iconUrl: resourcePath + 'images/icons8-policestation.png',
+                        shadowUrl: null,
+                        iconSize: new L.Point(13, 23),
+                        iconAnchor: new L.Point(7, 23),
+                        popupAnchor: new L.Point(0, -23)
+                }
+                );
+                var marker22 = L.marker(point22, {icon: greenIcon});
+                marker22.addTo(this.lmap);
+                marker22.bindPopup(
+                        '<b>Melbourne East Police Station</b><div><br><img style="width:100%" src="https://upload.wikimedia.org/wikipedia/commons/a/ab/EastPolice.jpg" alt="image" /></div>'
+                        + "<br>Address: 226 Flinders Ln, Melbourne VIC 3000"
+                        + "<br>Website: <a href='police.vic.gov.au' target='_blank'>police.vic.gov.au</a>"
+                        + "<br>Phone: (03) 9637 1100"
+                    );
+                
+                //Hospitals
+                //St.Vincent's Hospital
+                var point23 = [-37.82195, 144.95348];
+                var greenIcon = L.icon(
+                    {
+                        iconUrl: resourcePath + 'images/icons8-policestation.png',
+                        shadowUrl: null,
+                        iconSize: new L.Point(13, 23),
+                        iconAnchor: new L.Point(7, 23),
+                        popupAnchor: new L.Point(0, -23)
+                }
+                );
+                var marker23 = L.marker(point23, {icon: greenIcon});
+                marker23.addTo(this.lmap);
+                marker23.bindPopup(
+                        '<b>St.Vincent"s Hospital</b><div><br><img style="width:100%" src="https://upload.wikimedia.org/wikipedia/commons/8/8a/St_vincent%27s_hosp.jpg" alt="image" /></div>'
+                        + "<br>Address: 41 Victoria Parade, Fitzroy VIC 3065"
+                        + "<br>Website: <a href='svhm.org.au' target='_blank'>svhm.org.au</a>"
+                        + "<br>Phone: (03) 9231 2211"
+                    );
 
 
         this.layer_control = L.control.layers(this.baseLayers).addTo(this.lmap);

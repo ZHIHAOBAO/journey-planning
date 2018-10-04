@@ -338,6 +338,8 @@ otp.config.modes = {
 otp.config.sortBy = {
     "SHORTEST_TIME": "Shortest Time",
     "SHORTEST_DISTANCE": "Shortest Distance",
-    "MAX_2_TRANSITS": "Fewer Transits"
+    "MAX_2_TRANSITS": "Fewer Transits",
+    "LEAST_WALKING": "Least Walking",
+    "LONGEST_WALKING": "Longest Walking(For training)"
 
 };
